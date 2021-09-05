@@ -1,3 +1,4 @@
+import cv2
 import imutils
 
 
@@ -30,3 +31,10 @@ def sliding_window(image, stepSize, windowSize):
     # else:
         # pass
 
+
+def increase_shape(img,name):
+    if img.shape < (50, 250, 3):
+        img = cv2.resize(img, (img.shape[0] * 5, img.shape[1] * 2), interpolation=cv2.INTER_AREA)
+    else:
+        pass
+    cv2.imshow(f'{name}', img)
